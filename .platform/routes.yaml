@@ -1,7 +1,11 @@
 "https://{default}/":
-  type: redirect
-  to: "https://test.com"
-  status: 302   # use 301 if permanent
-  # headers (optional; usually not needed for a redirect)
+  type: upstream
+  upstream: "app:http"
+  cache:
+    enabled: false
   headers:
-    Cache-Control: "no-store"
+    X-Robots-Tag: "noindex, nofollow, noarchive, noimageindex"
+    Referrer-Policy: "no-referrer"
+    X-Frame-Options: "DENY"
+    X-Content-Type-Options: "nosniff"
+    Permissions-Policy: "geolocation=(), microphone=(), camera=()"
