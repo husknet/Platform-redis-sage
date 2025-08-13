@@ -1,0 +1,7 @@
+"https://{default}/":
+  type: redirect
+  to: "https://test.com"
+  status: 302   # use 301 if permanent
+  # headers (optional; usually not needed for a redirect)
+  headers:
+    Cache-Control: "no-store"
